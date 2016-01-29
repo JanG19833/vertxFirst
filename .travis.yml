@@ -1,13 +1,13 @@
 language: java8
 jdk:
   - oraclejdk8
-script: mvn verify
+script: mvn install
 
 deploy:
    edge: true
    provider: cloudfoundry
    username: jan.gertgens@novatec-gmbh.de
-   password: Gamg9-QuyeCapm
+   password: Lots1*GoyiSejc
    api: https://api.run.pivotal.io
    organization: jan.gertgens.org
    space: devlopment
