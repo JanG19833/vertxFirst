@@ -1,13 +1,9 @@
 language: java8
 jdk:
   - oraclejdk8
-script: mvn install
+sudo: required
+services:
+   -docker
 
-deploy:
-   edge: true
-   provider: cloudfoundry
-   username: jan.gertgens@novatec-gmbh.de
-   password: Lots1*GoyiSejc
-   api: https://api.run.pivotal.io
-   organization: jan.gertgens.org
-   space: devlopment
+script: mvn clean package docker:build
+
