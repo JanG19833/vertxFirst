@@ -24,8 +24,12 @@ public class ServerVerticle implements Verticle {
     @Override
     public void start(Future<Void> startFuture) throws Exception {
         Vertx vertx = Vertx.vertx();
-        LOGGER.info("First Verticle Deployed");
-        vertx.createHttpServer().requestHandler(req -> req.response().end("Hello World!!")).listen(8080);
+        LOGGER.info("Http Server created");
+        vertx.createHttpServer().
+                requestHandler(req -> {
+                    LOGGER.info("Request received");
+                    req.response().end("Hello World!!");
+                }).listen(8080);
     }
 
     @Override
