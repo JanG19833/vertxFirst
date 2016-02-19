@@ -38,6 +38,15 @@ public class TestServer {
         }));
     }
     @Test
+    public void testHttpRequest2(TestContext context){
+        Async async = context.async();
+        httpClient.getNow(8080, "localhost", "/", response -> response.bodyHandler(body -> {
+            context.assertEquals("Hello World!!", body.toString());
+            httpClient.close();
+            async.complete();
+        }));
+    }
+    @Test
     public void testHttpRequestFail(TestContext context){
         Async async = context.async();
         httpClient.getNow(8080, "localhost", "/",response -> response.bodyHandler(body ->{
