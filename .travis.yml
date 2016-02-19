@@ -2,8 +2,9 @@ language: java8
 jdk:
   - oraclejdk8
 sudo: required
-services:
-   -docker
+install:
+  - sudo apt-get install -y linux-image-virtual kernel linux-image-extra-virtual
+  - curl -sSL https://get.docker.com/ | sudo sh
 
-script: mvn clean package docker:build
+script: sudo mvn clean package docker:build
 
