@@ -1,10 +1,10 @@
 language: java8
 jdk:
   - oraclejdk8
-sudo: required
+sudo: true
+
 install:
-  - sudo apt-get install -y linux-image-virtual kernel linux-image-extra-virtual
-  - curl -sSL https://get.docker.com/ | sudo sh
+  - curl -sLo - http://j.mp/install-travis-docker | sh -xe
 
 script: sudo mvn clean package docker:build
 
