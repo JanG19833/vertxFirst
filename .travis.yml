@@ -3,6 +3,10 @@ jdk:
   - oraclejdk8
 
 
+env:
+  global:
+    -DOCKER_OPTS --insecure-registry 46.101.169.37:5000
+
 before_install:
  - wget https://archive.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.zip
  - unzip -qq apache-maven-3.3.9-bin.zip
@@ -15,5 +19,6 @@ services:
   - docker
 
 
-script: sudo mvn clean package docker:build
+script: sudo mvn clean package
 
+deploy:
