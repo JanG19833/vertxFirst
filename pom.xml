@@ -8,7 +8,7 @@
     <artifactId>vertx.test</artifactId>
     <version>1.0-SNAPSHOT</version>
     <properties>
-        <docker.registry.name>46.101.169.37:5000/</docker.registry.name>
+        <docker.registry.name>tutum.co/jang1983/test/</docker.registry.name>
         <docker.repository.name>${docker.registry.name}${artifactId}</docker.repository.name>
     </properties>
 
