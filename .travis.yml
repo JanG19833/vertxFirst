@@ -5,20 +5,24 @@ jdk:
 
 env:
   global:
-    -DOCKER_OPTS --insecure-registry 46.101.169.37:5000
-
-before_install:
- - wget https://archive.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.zip
- - unzip -qq apache-maven-3.3.9-bin.zip
- - export M2_HOME=$PWD/apache-maven-3.3.9
- - export PATH=$M2_HOME/bin:$PATH
+   - DOCKER_EMAIL jan.gertgens@novatec-gmbh.de
+   - DOCKER_USERNAME jang1983
+   - DOCKER_PASSWORD DibwFewa0.Yoxu
 
 sudo: true
 
 services:
   - docker
 
+before_install:
+ - wget https://archive.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.zip
+ - unzip -qq apache-maven-3.3.9-bin.zip
+ - export M2_HOME=$PWD/apache-maven-3.3.9
+ - export PATH=$M2_HOME/bin:$PATH
+ - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" tutum.co/jang1983/test
 
-script: sudo mvn clean package
+
+
+script: sudo mvn clean package docker:build
 
 deploy:
