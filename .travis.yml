@@ -3,11 +3,9 @@ jdk:
   - oraclejdk8
 
 
-env:
-  global:
-   - DOCKER_EMAIL jan.gertgens@novatec-gmbh.de
-   - DOCKER_USERNAME jang1983
-   - DOCKER_PASSWORD DibwFewa0.Yoxu
+travis env set DOCKER_EMAIL jan.gertgens@novatec-gmbh.de
+travis env set DOCKER_USERNAME jang1983
+travis env set DOCKER_PASSWORD DibwFewa0.Yoxu
 
 sudo: true
 
