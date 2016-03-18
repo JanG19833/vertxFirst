@@ -8,8 +8,10 @@
     <artifactId>vertx.test</artifactId>
     <version>1.0-SNAPSHOT</version>
     <properties>
-        <docker.registry.name>tutum.co/jang1983/test/</docker.registry.name>
-        <docker.repository.name>${docker.registry.name}${artifactId}</docker.repository.name>
+
+        <docker.registry.name>tutum.co/jang1983/test</docker.registry.name>
+        <docker.repository.name>${docker.registry.name}</docker.repository.name>
+
     </properties>
 
     <dependencies>
